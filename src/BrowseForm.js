@@ -5,11 +5,10 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { GoPersonFill } from "react-icons/go";
 import TravelersCounter from './travelers';
 
-function BrowseForm({SelectChange})
+function BrowseForm({from,to,season,trav,submit})
 {
-  const [adults, setAdults] = useState(1);  // useState for adults
-  const [children, setChildren] = useState(0);  // useState for children
   const [isOpen, setIsOpen] = useState(false);
+  const [travelers,setTravelers] = useState(1);
 
 
   function handleToggle()
@@ -18,10 +17,15 @@ function BrowseForm({SelectChange})
     };
 
 
-  function handleTravelers(travelers)
+  function handleSave(travelers)
   {
     console.log(travelers);
+    setTravelers(travelers);
+    setIsOpen(false);
+    trav(travelers);
   };
+
+
 
   return (
     <div>
@@ -29,17 +33,17 @@ function BrowseForm({SelectChange})
       <div className='browseForm'>
         <div className='from'>
           <FaPlaneDeparture className='icon'/>
-          <input className='fromInput' placeholder='From?' ></input>
+          <input className='fromInput' placeholder='From?' onChange={from} ></input>
         </div>
 
         <div className='to'>
           <FaPlaneArrival className='icon'/>
-          <input className='toInput' placeholder='To?'></input>
+          <input className='toInput' placeholder='To?' onChange={to}></input>
         </div>
         
         <div className='date'>
           <FaRegCalendarAlt className='icon'/>
-          <select className='selectInput' onChange={SelectChange}>
+          <select className='selectInput' onChange={season}>
             <option value="">Select an option</option>
             <option value="winter">Winter</option>
             <option value="summer">Summer</option>
@@ -48,17 +52,16 @@ function BrowseForm({SelectChange})
           </select>
         </div>
 
-        <div className='travelers' onClick={handleToggle}>
+        <div className='travelers' onClick={handleToggle} >
           <GoPersonFill className='icon'/>
-          {adults + children} Travelers
+          {travelers} Travelers
         </div>
 
         <div className='options'>
-          {isOpen && <TravelersCounter onTravelersChange = {handleTravelers} 
-          adults={adults} children={children}/>}
+          {isOpen && <TravelersCounter  onSave={handleSave} />}
         </div>
 
-        <button className='browse'>Search</button>
+        <button className='browse' onClick={submit}>Search</button>
       </div>
 
     </div>
