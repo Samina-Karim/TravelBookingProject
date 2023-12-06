@@ -1,8 +1,8 @@
 import React,{ useState } from 'react';
-import { FaPlaneDeparture } from "react-icons/fa";
-import { FaPlaneArrival } from "react-icons/fa";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { GoPersonFill } from "react-icons/go";
+import { FaPlaneDeparture } from 'react-icons/fa';
+import { FaPlaneArrival } from 'react-icons/fa';
+import { FaRegCalendarAlt } from 'react-icons/fa';
+import { GoPersonFill } from 'react-icons/go';
 import TravelersCounter from './travelers';
 
 function BrowseForm({SelectChange})
@@ -24,8 +24,8 @@ function BrowseForm({SelectChange})
   };
 
   return (
-    <div>
-      <h2>number of adults and children</h2>
+    <div id="full_browse">
+      <h2>Embark on Your Journey: Find Your Perfect Travel Package!</h2>
       <div className='browseForm'>
         <div className='from'>
           <FaPlaneDeparture className='icon'/>
@@ -57,8 +57,10 @@ function BrowseForm({SelectChange})
           {isOpen && <TravelersCounter onTravelersChange = {handleTravelers} 
           adults={adults} children={children}/>}
         </div>
+        
 
-        <button className='browse'>Search</button>
+        <button className='browse'>SEARCH</button>
+        
       </div>
 
     </div>

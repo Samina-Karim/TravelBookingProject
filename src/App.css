@@ -1,10 +1,9 @@
 body{
   margin: 0px;
-}
-.head{
-  height: 20vh;
-  width: 100%;
-  background-color: rgb(196, 207, 181);
+  background-color: white;
+  font-family: sans-serif;
+  background-image:url("https://images.unsplash.com/photo-1596570629816-f006704f54ad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") ;
+  background-size: cover;
 }
 
 .body{
@@ -12,11 +11,64 @@ body{
   width: 100%;
 }
 
+/* Header style */
+.head{
+  /* height: 20vh; */
+  width: 100%;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  padding:10px;
+  align-items: center;
+}
+
+.head ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; 
+}
+
+.head ul li a{
+  text-decoration: none;
+  padding: 10px;
+  color:black;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size:large;
+}
+
+.head nav ul li:hover, .head nav a:hover{
+  background-color:navy;
+  color: white;
+}
+
+
+
 
 /******** Browse form  ************/
 
-.browseForm{
+#full_browse h2{
+  color:white;
+  justify-content: center;
   display: flex;
+}
+
+#full_browse{
+  background-color: rgba(0,0,0,0.5);
+  margin: 20px;
+  padding:10px;
+  
+}
+
+.browseForm{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.icon{
+  background-color: white;
 }
 
 .from,.to,.date ,.travelers{
@@ -28,6 +80,8 @@ body{
   width: 300px;
   font-size: 22px;
   cursor: pointer;
+  background-color: white;
+  align-items: center;
 
 }
 
@@ -56,4 +110,23 @@ body{
   left: 51%;
   padding: 10px;
 
+}
+
+/* search button */
+button.browse{
+  padding: 10px;
+  background-color: rgb(243, 152, 6);
+  border-style: none;
+  margin: 20px;
+  font-family: 'Arial Narrow';
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 5px;
+
+}
+
+button.browse:hover{
+  background-color: rgb(199, 123, 2) ;
 }
